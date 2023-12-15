@@ -67,13 +67,13 @@ Welcome to the Ticket Ordering Information System to enter our rides! This proje
 
 ## Development Guide
 
-1. Clone this repository: `git clone https://github.com/username/nama-repo.git`
+1. Clone this repository: `git clone https://github.com/saktiworkstation/winter-wonder-tickets`
 2. Install dependencies: `npm install`
 3. Run the project: `npm start`
 
 ## Development Team
 
-- Developer Name 1 - [GitHub Profile](https://github.com/saktiworkstation)
+- Developer Name 1 - [Sakti Kusuma Aji](https://github.com/saktiworkstation)
 
 ## Licence
 
