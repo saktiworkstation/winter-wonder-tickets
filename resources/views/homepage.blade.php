@@ -28,33 +28,34 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                             card's
                             content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Launch demo modal
+                        </button>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-4 py-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/room.jpg" class="card-img-top" height="300">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 py-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/room.jpg" class="card-img-top" height="300">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's
-                            content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="#" method="post">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Number of tickets</span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input"
+                                        aria-describedby="inputGroup-sizing-default">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +117,8 @@
                             </svg>
                         </div>
                         <h4 class="fw-semibold mb-0 text-body-emphasis">Online ticket booking</h4>
-                        <p class="text-body-secondary">Online ticket booking service, anywhere, anytime, without the need to
+                        <p class="text-body-secondary">Online ticket booking service, anywhere, anytime, without the need
+                            to
                             queue.</p>
                     </div>
 
@@ -157,4 +159,13 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
 @endsection
