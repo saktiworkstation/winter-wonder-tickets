@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/detail-ticket', [TicketController::class, 'detail']);
+Route::get('/promotions', [PromotionController::class, 'index']);
