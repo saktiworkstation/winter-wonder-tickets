@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Notification;
 use App\Models\TicketType;
 use App\Models\User;
 use App\Models\UserTicket;
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         TicketType::factory(10)->create();
         UserTicket::factory(10)->create();
+        Notification::factory(10)->create();
     }
 }
