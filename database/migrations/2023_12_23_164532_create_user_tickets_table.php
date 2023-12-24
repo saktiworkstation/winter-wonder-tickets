@@ -17,7 +17,7 @@ class CreateUserTicketsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('ticket_type_id');
-            $table->bigInteger('quatity'); // amount
+            $table->bigInteger('quantity'); // amount
             $table->bigInteger('total_price');
             $table->dateTime('purchase_date');
             $table->integer('status'); // 0 = 'queue', 1 = 'success', 2 = 'canceled'
