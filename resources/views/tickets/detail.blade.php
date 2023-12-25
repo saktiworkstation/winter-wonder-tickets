@@ -8,21 +8,19 @@
                     <div class="col-4">
                         <img src="/img/room.jpg" class="border rounded" width="240px" height="85%">
                     </div>
-                    <div class="col-3">
-                        <h3>Title</h3>
-                        <p>Price : </p>
-                        <p>Stock : </p>
-                        <p>Sold : </p>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <div class="col-8">
+                        <h3>{{ $ticket->type_name }}</h3>
+                        <p>Price : {{ $ticket->price }}</p>
+                        <h4>{!! $ticket->descriptions !!}</h4>
+                        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
                             Booking Now
                         </button>
                     </div>
                 </div>
                 <hr>
-                <div class="row pb-4">
-                    <h4>Descriptions</h4>
-                </div>
+                {{-- <div class="row pb-4">
+                </div> --}}
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TicketController;
+use App\Models\TicketType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage', [
+        'tickets' => TicketType::latest()->get(),
+    ]);
 });
 
-Route::get('/detail-ticket', [TicketController::class, 'detail']);
+Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
 Route::get('/promotions', [PromotionController::class, 'index']);

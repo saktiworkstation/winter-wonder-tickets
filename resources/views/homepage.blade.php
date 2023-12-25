@@ -20,18 +20,19 @@
         {{-- Ticket --}}
         <div class="row pt-4 mt-3">
             <h2 class="pb-3">Booking tickets now</h2>
-            <div class="col-md-4 py-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/room.jpg" class="card-img-top" height="300">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's
-                            content.</p>
-                        <a href="/detail-ticket" class="btn btn-primary">See More</a>
+            @foreach ($tickets as $ticket)
+                <div class="col-md-4 py-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/img/room.jpg" class="card-img-top" height="300">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $ticket->type_name }}</h5>
+                            <p class="card-text">{{ $ticket->descriptions }}</p>
+                            <p class="card-text">IDR. {{ $ticket->price }}</p>
+                            <a href="/detail-ticket/{{ $ticket->type_name }}" class="btn btn-primary">See More</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
