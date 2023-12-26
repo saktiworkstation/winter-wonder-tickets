@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TicketController;
 use App\Models\TicketType;
@@ -21,6 +22,10 @@ Route::get('/', function () {
         'tickets' => TicketType::latest()->get(),
     ]);
 });
+
+Route::post('/authenticate', [AuthController::class, 'authenticate']);
+Route::post('/logout', [AuthController::class, 'logout']);
+Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
 Route::get('/promotions', [PromotionController::class, 'index']);

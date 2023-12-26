@@ -43,7 +43,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="#" method="post">
+                            <form action="/authenticate" method="post">
                                 @csrf
                                 <div class="form-floating mt-2">
                                     <input type="email" name="email"
@@ -83,7 +83,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="#" method="post">
+                            <form action="/register" method="post">
                                 @csrf
                                 <div class="form-floating mt-2">
                                     <input type="text" name="name"
@@ -119,9 +119,9 @@
                                     @enderror
                                 </div>
                                 <div class="form-floating mt-2">
-                                    <input type="phone_number" name="phone_number"
+                                    <input type="number" name="phone_number"
                                         class="form-control @error('phone_number') is-invalid @enderror"
-                                        id="phone_number" placeholder="name@example.com" required
+                                        id="phone_number" placeholder="87684566" required
                                         value="{{ old('phone_number') }}">
                                     <label for="phone_number">Phone Number</label>
                                     @error('phone_number')
