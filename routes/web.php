@@ -22,10 +22,14 @@ Route::get('/', function () {
         'tickets' => TicketType::latest()->get(),
     ]);
 });
+Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
+Route::get('/promotions', [PromotionController::class, 'index']);
 
 Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/register', [AuthController::class, 'store']);
 
-Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
-Route::get('/promotions', [PromotionController::class, 'index']);
+Route::get('/dashhboard', function () {
+    return view('');
+});
+
