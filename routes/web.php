@@ -29,7 +29,6 @@ Route::post('/authenticate', [AuthController::class, 'authenticate']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/register', [AuthController::class, 'store']);
 
-Route::get('/dashhboard', function () {
-    return view('');
-});
-
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');
