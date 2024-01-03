@@ -9,7 +9,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
+                <a class="nav-link {{ Request::is('dashboard/owned-tickets*') ? 'active' : '' }}"
+                    href="/dashboard/owned-tickets">
                     <span data-feather="file-text"></span>
                     Owned tickets
                 </a>
@@ -22,8 +23,7 @@
             </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}"
-                        href="/dashboard/categories">
+                    <a class="nav-link {{ Request::is('/dashboard/tickets*') ? 'active' : '' }}" href="/dashboard/tickets">
                         <span data-feather="grid"></span>
                         tickets
                     </a>
