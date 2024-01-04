@@ -27,7 +27,7 @@ class TicketDashboardController extends Controller
      */
     public function create()
     {
-        return Response();
+        return Response(view('dashboard.ticket.create'));
     }
 
     /**
@@ -38,7 +38,15 @@ class TicketDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        return Response();
+        $validatedData = $request->validate([
+            'type_name' => 'required|max:255',
+            'price' => 'required',
+            'descriptions' => 'required'
+        ]);
+
+        TicketType::create($validatedData);
+
+        return redirect('/dashboard/tickets')->with('success', 'New Ticket type has been added!');
     }
 
     /**
