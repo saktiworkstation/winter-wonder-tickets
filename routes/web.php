@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homepage', [
-        'tickets' => TicketType::latest()->get(),
+        'tickets' => TicketType::latest()->paginate('6'),
     ]);
 });
 Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
