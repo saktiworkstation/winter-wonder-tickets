@@ -68,7 +68,10 @@ class TicketDashboardController extends Controller
      */
     public function edit(TicketType $ticketType)
     {
-        return Response();
+        dd($ticketType); // Debugging line
+        return Response(view('dashboard.ticket.edit',[
+            'ticket' => $ticketType,
+        ]));
     }
 
     /**
