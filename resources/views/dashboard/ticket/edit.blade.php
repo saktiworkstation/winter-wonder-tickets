@@ -6,7 +6,8 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/tickets" class="mb-5" enctype="multipart/form-data">
+        <form method="post" action="/dashboard/tickets/{{ $ticket->type_name }}" class="mb-5" enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="mb-3">
                 <label for="type_name" class="form-label">Type Name</label>

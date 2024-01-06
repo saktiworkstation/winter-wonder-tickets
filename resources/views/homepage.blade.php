@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <h5 class="card-title">IDR. {{ $ticket->price }}</h5>
                             <p class="card-text">{!! $ticket->descriptions !!}</p>
-                            <a href="/detail-ticket/{{ $ticket->type_name }}" class="btn btn-primary">See More</a>
+                            <a href="/detail-ticket/{{ $ticket->id }}" class="btn btn-primary">See More</a>
                         </div>
                     </div>
                 </div>

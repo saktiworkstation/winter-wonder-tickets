@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\TicketType;
-use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
+use Facade\FlareClient\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class TicketDashboardController extends Controller
 {
@@ -39,7 +40,7 @@ class TicketDashboardController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'type_name' => 'required|max:255',
+            'type_name' => 'required|max:255|unique:ticket_types',
             'price' => 'required',
             'descriptions' => 'required'
         ]);
@@ -68,7 +69,6 @@ class TicketDashboardController extends Controller
      */
     public function edit(TicketType $ticketType)
     {
-        dd($ticketType); // Debugging line
         return Response(view('dashboard.ticket.edit',[
             'ticket' => $ticketType,
         ]));
@@ -83,7 +83,15 @@ class TicketDashboardController extends Controller
      */
     public function update(Request $request, TicketType $ticketType)
     {
-        return Response();
+        $validatedData = $request->validate([
+            'type_name' => 'required|max:255|unique:ticket_types',
+            'price' => 'required',
+            'descriptions' => 'required'
+        ]);
+
+        TicketType::where('id', $ticketType->id)->update($validatedData);
+
+        return redirect('/dashboard/tickets')->with('success', 'New Ticket type has been Edited!');
     }
 
     /**
@@ -94,6 +102,7 @@ class TicketDashboardController extends Controller
      */
     public function destroy(TicketType $ticketType)
     {
-        return Response();
+        TicketType::destroy($ticketType->id);
+        return redirect('/dashboard/tickets')->with('success', 'Ticket Type has been deleted!');
     }
 }

@@ -23,7 +23,7 @@ Route::get('/', function () {
         'tickets' => TicketType::latest()->paginate('6'),
     ]);
 });
-Route::get('/detail-ticket/{ticketType:type_name}', [TicketController::class, 'detail']);
+Route::get('/detail-ticket/{ticketType:id}', [TicketController::class, 'detail']);
 Route::get('/promotions', [PromotionController::class, 'index']);
 
 Route::post('/authenticate', [AuthController::class, 'authenticate']);

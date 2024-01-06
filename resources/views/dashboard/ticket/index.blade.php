@@ -31,13 +31,11 @@
                         <td>{{ $ticket->type_name }}</td>
                         <td>{!! $ticket->descriptions !!}</td>
                         <td>{{ $ticket->price }}</td>
-                        <td><a href="/dashboard/tickets/{{ $ticket->type_name }}" class="badge bg-info">
-                                <span data-feather="eye"></span>
-                            </a>
-                            <a href="/dashboard/tickets/{{ $ticket->type_name }}/edit" class="badge bg-warning">
+                        <td>
+                            <a href="/dashboard/tickets/{{ $ticket->id }}/edit" class="badge bg-warning">
                                 <span data-feather="edit"></span>
                             </a>
-                            <form action="/dashboard/tickets/{{ $ticket->type_name }}" method="post" class="d-inline">
+                            <form action="/dashboard/tickets/{{ $ticket->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">
