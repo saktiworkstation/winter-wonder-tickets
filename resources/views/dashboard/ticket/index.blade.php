@@ -32,10 +32,10 @@
                         <td>{!! $ticket->descriptions !!}</td>
                         <td>{{ $ticket->price }}</td>
                         <td>
-                            <a href="/dashboard/tickets/{{ $ticket->id }}/edit" class="badge bg-warning">
+                            <a href="/dashboard/tickets/edit/{{ $ticket->id }}" class="badge bg-warning">
                                 <span data-feather="edit"></span>
                             </a>
-                            <form action="/dashboard/tickets/{{ $ticket->id }}" method="post" class="d-inline">
+                            <form action="/dashboard/tickets/delete/{{ $ticket->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')">

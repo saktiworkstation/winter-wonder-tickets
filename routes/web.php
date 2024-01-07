@@ -34,4 +34,12 @@ Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
-Route::resource('/dashboard/tickets', TicketDashboardController::class)->middleware('auth');
+Route::get('/dashboard/tickets', [TicketDashboardController::class, 'index'])->middleware('auth');
+
+Route::get('/dashboard/tickets/create', [TicketDashboardController::class, 'create'])->middleware('auth');
+Route::post('/dashboard/tickets/create', [TicketDashboardController::class, 'store'])->middleware('auth');
+
+Route::get('/dashboard/tickets/edit/{ticketType:id}', [TicketDashboardController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/tickets/edit/{ticketType:id}', [TicketDashboardController::class, 'update'])->middleware('auth');
+
+Route::delete('/dashboard/tickets/delete/{ticketType:id}', [TicketDashboardController::class, 'destroy'])->middleware('auth');
