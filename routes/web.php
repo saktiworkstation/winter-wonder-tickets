@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketDashboardController;
+use App\Http\Controllers\UserTicketController;
 use App\Models\TicketType;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +44,5 @@ Route::get('/dashboard/tickets/edit/{ticketType:id}', [TicketDashboardController
 Route::put('/dashboard/tickets/edit/{ticketType:id}', [TicketDashboardController::class, 'update'])->middleware('auth');
 
 Route::delete('/dashboard/tickets/delete/{ticketType:id}', [TicketDashboardController::class, 'destroy'])->middleware('auth');
+
+Route::post('/dashboard/user-tickets/create', [UserTicketController::class, 'buy'])->middleware('auth');

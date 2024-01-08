@@ -27,6 +27,8 @@ class TicketDashboardController extends Controller
             'descriptions' => 'required'
         ]);
 
+        $validatedData['user_id'] = auth()->user()->id;
+
         TicketType::create($validatedData);
 
         return redirect('/dashboard/tickets')->with('success', 'New Ticket type has been added!');
