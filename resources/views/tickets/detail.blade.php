@@ -39,7 +39,8 @@
                         <div class="mb-3">
                             <label for="basic-url" class="form-label">How much do you want to order?</label>
                             <div class="input-group">
-                                <span class="input-group-text" id="basic-addon3">IDR. 0 / Ticket</span>
+                                <input type="hidden" name="ticket_type_id" value="{{ $ticket->id }}">
+                                <span class="input-group-text" id="basic-addon3">IDR. {{ $ticket->price }} / Ticket</span>
                                 <input type="text" class="form-control" id="basic-url"
                                     aria-describedby="basic-addon3 basic-addon4">
                             </div>
