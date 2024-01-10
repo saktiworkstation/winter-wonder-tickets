@@ -35,14 +35,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="/dashboard/user-tickets/create" method="post">
+                        @csrf
                         <div class="mb-3">
                             <label for="basic-url" class="form-label">How much do you want to order?</label>
                             <div class="input-group">
                                 <input type="hidden" name="ticket_type_id" value="{{ $ticket->id }}">
                                 <span class="input-group-text" id="basic-addon3">IDR. {{ $ticket->price }} / Ticket</span>
                                 <input type="text" class="form-control" id="basic-url"
-                                    aria-describedby="basic-addon3 basic-addon4">
+                                    aria-describedby="basic-addon3 basic-addon4" name="quantity">
+                                @error('quantity')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
                         </div>
 
