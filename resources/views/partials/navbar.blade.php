@@ -19,17 +19,35 @@
             </ul>
             {{-- Modal Link --}}
             <span class="navbar-text">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item px-3">
-                        <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
-                            data-bs-target="#signin">Sign
-                            In</button>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#signup">Sign
-                            Up</button>
-                    </li>
-                </ul>
+                @auth
+                    <ul class="account">
+                        <li class="dropdown">
+                            <a class="btn-login-custom" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                My Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/dashboard">Profile</a></li>
+                                <li><a class="dropdown-item" href="#">Borrowing</a></li>
+                                <li><a class="dropdown-item" href="#">Bookmark</a></li>
+                                <li><a class="dropdown-item" href="#">History</a></li>
+                                <li><a class="dropdown-item" href="#">Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                @else
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item px-3">
+                            <button type="button" class="btn btn-outline-info" data-bs-toggle="modal"
+                                data-bs-target="#signin">Sign
+                                In</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#signup">Sign
+                                Up</button>
+                        </li>
+                    </ul>
+                @endauth
             </span>
 
             <!-- Sign In Modal -->
