@@ -2,6 +2,12 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
+                <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" hrefaria-current="page" href="/">
+                    <span data-feather="home"></span>
+                    Homepage
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" hrefaria-current="page"
                     href="/dashboard">
                     <span data-feather="home"></span>
@@ -12,7 +18,7 @@
                 <a class="nav-link {{ Request::is('dashboard/owned-tickets*') ? 'active' : '' }}"
                     href="/dashboard/owned-tickets">
                     <span data-feather="file-text"></span>
-                    Owned tickets
+                    Report
                 </a>
             </li>
         </ul>

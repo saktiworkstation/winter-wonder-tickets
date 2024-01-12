@@ -6,6 +6,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketDashboardController;
 use App\Http\Controllers\UserTicketController;
 use App\Models\TicketType;
+use App\Models\UserTicket;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,7 +33,9 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::post('/register', [AuthController::class, 'store']);
 
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.index', [
+        'userTickets' => UserTicket::where('user_id', auth()->user()->id)->paginate('6')
+    ]);
 })->middleware('auth');
 
 Route::get('/dashboard/tickets', [TicketDashboardController::class, 'index'])->middleware('auth');

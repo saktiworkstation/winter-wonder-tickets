@@ -10,4 +10,8 @@ class TicketType extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function userTicket(){
+        return $this->hasMany(UserTicket::class);
+    }
 }
