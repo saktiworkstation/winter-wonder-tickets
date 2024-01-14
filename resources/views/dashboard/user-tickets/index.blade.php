@@ -25,7 +25,13 @@
                         <td>{{ $ticket->ticketType->type_name }}</td>
                         <td>{{ $ticket->quantity }}</td>
                         <td>{{ $ticket->total_price }}</td>
-                        <td>{{ $ticket->status }}</td>
+                        @if ($ticket->status == 0)
+                            <td class="text-primary">Queue</td>
+                        @elseif($ticket->status == 1)
+                            <td class="text-success">Success</td>
+                        @else
+                            <td class="text-danger">Canceled</td>
+                        @endif
                         <td>{{ $ticket->purchase_date }}</td>
                     </tr>
                 @endforeach
