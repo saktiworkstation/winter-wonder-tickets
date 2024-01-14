@@ -15,8 +15,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/owned-tickets*') ? 'active' : '' }}"
-                    href="/dashboard/owned-tickets">
+                <a class="nav-link {{ Request::is('dashboard/user-tickets*') ? 'active' : '' }}"
+                    href="/dashboard/user-tickets">
                     <span data-feather="file-text"></span>
                     Report
                 </a>
