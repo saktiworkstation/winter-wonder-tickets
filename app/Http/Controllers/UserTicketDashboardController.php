@@ -7,8 +7,17 @@ use Illuminate\Http\Request;
 
 class UserTicketDashboardController extends Controller
 {
-    public function UseTicket(){
+    public function UseTicket(Request $request, UserTicket $userTicket){
         // Fungsi untuk menggunakan ticket
+        $rules = [];
+        $oldStatus = $request->status;
+        $newStatus = $oldStatus + 1;
+
+        $rules['status'] = $newStatus;
+
+        UserTicket::where('id', $userTicket->id)->update($rules);
+
+        return redirect('/dashboard')->with('success', 'Ticket successfully used, wait for confirmation!');
     }
 
     public function UserTicketReport(){

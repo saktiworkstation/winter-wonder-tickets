@@ -20,7 +20,7 @@ class CreateUserTicketsTable extends Migration
             $table->bigInteger('quantity'); // amount
             $table->bigInteger('total_price');
             $table->dateTime('purchase_date');
-            $table->integer('status'); // 0 = 'queue', 1 = 'success', 2 = 'canceled'
+            $table->integer('status'); // 0 = 'queue', 1 = 'pending', 2 = 'success'
             $table->timestamps();
         });
     }

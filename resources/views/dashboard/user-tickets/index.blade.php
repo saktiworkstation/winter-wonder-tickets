@@ -26,11 +26,11 @@
                         <td>{{ $ticket->quantity }}</td>
                         <td>{{ $ticket->total_price }}</td>
                         @if ($ticket->status == 0)
-                            <td class="text-primary">Queue</td>
+                            <td class="text-warning text-bold">Pending</td>
                         @elseif($ticket->status == 1)
-                            <td class="text-success">Success</td>
+                            <td class="text-info text-bold">Queue</td>
                         @else
-                            <td class="text-danger">Canceled</td>
+                            <td class="text-success text-bold">Success</td>
                         @endif
                         <td>{{ $ticket->purchase_date }}</td>
                     </tr>
