@@ -31,7 +31,14 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::is('/dashboard/tickets*') ? 'active' : '' }}" href="/dashboard/tickets">
                         <span data-feather="grid"></span>
-                        tickets
+                        Tickets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/user-tickets*') ? 'active' : '' }}"
+                        href="/dashboard/user-tickets/management">
+                        <span data-feather="grid"></span>
+                        User Tickets
                     </a>
                 </li>
             </ul>

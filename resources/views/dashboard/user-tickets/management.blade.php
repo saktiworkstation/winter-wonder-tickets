@@ -1,0 +1,51 @@
+@extends('dashboard.layouts.main')
+
+@section('container')
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Tickets Management</h1>
+    </div>
+
+    {{-- Ticket --}}
+    <div class="row pt-4 mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Ticket Name</th>
+                    <th scope="col">In the name of</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Purchase Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($userTickets as $ticket)
+                    @if ($ticket->status == 1)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $ticket->ticketType->type_name }}</td>
+                            <td>{{ $ticket->user->name }}</td>
+                            <td>{{ $ticket->quantity }}</td>
+                            <td>{{ $ticket->total_price }}</td>
+                            @if ($ticket->status == 0)
+                                <td class="text-warning text-bold">Pending</td>
+                            @elseif($ticket->status == 1)
+                                <td class="text-info text-bold">Queue</td>
+                            @else
+                                <td class="text-success text-bold">Success</td>
+                            @endif
+                            <td>{{ $ticket->purchase_date }}</td>
+                            <td>
+                                <a href="/dashboard/user-tickets/grantStatus/{{ $ticket->id }}" class="badge bg-warning">
+                                    <span data-feather="check"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+@endsection

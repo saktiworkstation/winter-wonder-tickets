@@ -49,4 +49,5 @@ Route::delete('/dashboard/tickets/delete/{ticketType:id}', [TicketDashboardContr
 Route::post('/dashboard/user-tickets/create', [UserTicketController::class, 'buy'])->middleware('auth');
 
 Route::get('/dashboard/user-tickets', [UserTicketDashboardController::class, 'UserTicketReport'])->middleware('auth');
-Route::put('/dashboard/user-tickets/{userTickets:id}', [UserTicketDashboardController::class, 'UseTicket'])->middleware('auth');
+Route::get('/dashboard/user-tickets/grantStatus/{id}', [UserTicketDashboardController::class, 'UseTicket'])->middleware('auth');
+Route::get('/dashboard/user-tickets/management', [UserTicketDashboardController::class, 'management'])->middleware('auth');

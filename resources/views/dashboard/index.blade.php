@@ -7,13 +7,13 @@
 
     {{-- Ticket --}}
     <div class="row pt-4 mt-3">
-        <h2 class="pb-3">My Tickets</h2>
         @if (session()->has('success'))
             <div class="alert alert-success alert-dismissible fade show col-lg-8" role="alert">
                 {{ session('success') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        <h2 class="pb-3">My Tickets</h2>
 
         @foreach ($userTickets as $ticket)
             @if ($ticket->status == 0)
@@ -25,7 +25,8 @@
                             <h5 class="card-title">Amount : {{ $ticket->quantity }}</h5>
                             <h5 class="card-title">Total Price. {{ $ticket->total_price }}</h5>
                             <p class="card-text">{!! $ticket->ticketType->descriptions !!}</p>
-                            <a href="/dashboard/user-tickets/{{ $ticket->id }}" class="btn btn-primary">Use</a>
+                            <a href="/dashboard/user-tickets/grantStatus/{{ $ticket->id }}"
+                                class="btn btn-primary">Use</a>
                         </div>
                     </div>
                 </div>

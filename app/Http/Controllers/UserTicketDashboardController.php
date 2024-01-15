@@ -7,15 +7,19 @@ use Illuminate\Http\Request;
 
 class UserTicketDashboardController extends Controller
 {
-    public function UseTicket(Request $request, UserTicket $userTicket){
+    public function UseTicket($id){
         // Fungsi untuk menggunakan ticket
-        $rules = [];
-        $oldStatus = $request->status;
-        $newStatus = $oldStatus + 1;
+        $userTicket = UserTicket::find($id);
 
-        $rules['status'] = $newStatus;
+    if (!$userTicket) {
+        return redirect('/dashboard')->with('error', 'Ticket not found!');
+    }
 
-        UserTicket::where('id', $userTicket->id)->update($rules);
+    $oldStatus = $userTicket->status;
+    $newStatus = $oldStatus + 1;
+
+    $userTicket->status = $newStatus;
+    $userTicket->save();
 
         return redirect('/dashboard')->with('success', 'Ticket successfully used, wait for confirmation!');
     }
@@ -24,6 +28,13 @@ class UserTicketDashboardController extends Controller
         // Fungsi Untuk halaman Report yang berisikan Data Penggunaan dan history pembelien ticket oleh user
         return Response(view('dashboard.user-tickets.index', [
             'userTickets' => UserTicket::where('user_id', auth()->user()->id)->get()
+        ]));
+    }
+
+    public function management(){
+        // Fungsi untuk menampilkan user ticket yang telah digunakan, untuk di konfirmasi
+        return Response(view('dashboard.user-tickets.management', [
+            'userTickets' => UserTicket::latest()->get()
         ]));
     }
 }
