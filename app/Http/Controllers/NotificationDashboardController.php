@@ -21,11 +21,18 @@ class NotificationDashboardController extends Controller
         ]));
     }
 
-    public function addNotifToAll(){
+    public function addGeneralNotif(){
         // Membuat notif yang akan diterima semua user
     }
 
-    public function addNotifToOnePerson(){
+    public function storeGeneralNotif(){
+        // Membuat notif yang akan diterima semua user
+    }
+    public function addPersonalNotif(){
+        // Memberikan notif ke satu orang
+    }
+
+    public function storePersonalNotif(){
         // Memberikan notif ke satu orang
     }
 }

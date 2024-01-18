@@ -51,3 +51,5 @@ Route::post('/dashboard/user-tickets/create', [UserTicketController::class, 'buy
 Route::get('/dashboard/user-tickets', [UserTicketDashboardController::class, 'UserTicketReport'])->middleware('auth');
 Route::get('/dashboard/user-tickets/grantStatus/{id}', [UserTicketDashboardController::class, 'UseTicket'])->middleware('auth');
 Route::get('/dashboard/user-tickets/management', [UserTicketDashboardController::class, 'management'])->middleware('auth');
+
+Route::post('/dashboard/notifications/personal', [UserTicketDashboardController::class, 'management'])->middleware('auth');

@@ -14,10 +14,13 @@
             </div>
         @endif
 
+        <a href="/dashboard/notifications/personal" class="btn btn-primary mb-3">Create new Personal Message</a>
+        <a href="/dashboard/notifications/general" class="btn btn-primary mb-3">Create new General Message</a>
+
         @foreach ($notifications as $notif)
             <div class="col-md-4 py-3">
                 <div class="card">
-                    <h5 class="card-header">{{ $notif->user->username }}</h5>
+                    <h5 class="card-header">From : {{ $notif->user->username }}</h5>
                     <div class="card-body">
                         <h5 class="card-title">Message : {{ $notif->message }}</h5>
                     </div>
