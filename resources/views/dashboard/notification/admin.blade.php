@@ -29,7 +29,7 @@
         @endforeach
 
         <div class="d-flex justify-content-center">
-            {{ $userTickets->links() }}
+            {{ $notifications->links() }}
         </div>
     </div>
 @endsection

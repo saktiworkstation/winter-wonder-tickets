@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\NotificationDashboardController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketDashboardController;
@@ -52,4 +53,6 @@ Route::get('/dashboard/user-tickets', [UserTicketDashboardController::class, 'Us
 Route::get('/dashboard/user-tickets/grantStatus/{id}', [UserTicketDashboardController::class, 'UseTicket'])->middleware('auth');
 Route::get('/dashboard/user-tickets/management', [UserTicketDashboardController::class, 'management'])->middleware('auth');
 
-Route::post('/dashboard/notifications/personal', [UserTicketDashboardController::class, 'management'])->middleware('auth');
+Route::get('/dashboard/notifications/admin', [NotificationDashboardController::class, 'adminView'])->middleware('auth');
+Route::get('/dashboard/notifications/member', [NotificationDashboardController::class, 'memberView'])->middleware('auth');
+Route::post('/dashboard/notifications/personal', [NotificationDashboardController::class, 'management'])->middleware('auth');

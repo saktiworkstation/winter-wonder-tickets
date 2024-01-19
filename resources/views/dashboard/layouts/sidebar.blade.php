@@ -21,6 +21,13 @@
                     Report
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/notifications*') ? 'active' : '' }}"
+                    href="/dashboard/notifications/member">
+                    <span data-feather="file-text"></span>
+                    Notifications
+                </a>
+            </li>
         </ul>
 
         @can('admin')
@@ -39,6 +46,13 @@
                         href="/dashboard/user-tickets/management">
                         <span data-feather="grid"></span>
                         User Tickets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/notifications*') ? 'active' : '' }}"
+                        href="/dashboard/notifications/admin">
+                        <span data-feather="grid"></span>
+                        Notifications
                     </a>
                 </li>
             </ul>

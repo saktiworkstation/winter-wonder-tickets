@@ -10,14 +10,14 @@ class NotificationDashboardController extends Controller
     public function adminView(){
         // Fungsi untuk halaman admin, isi dari tampilan semua notif
         return Response(view('dashboard.notification.admin',[
-            'notifications' => Notification::latest()->get()
+            'notifications' => Notification::latest()->paginate('6')
         ]));
     }
 
     public function memberView(){
         // Fungsi untuk halaman member, isi dari notif yang di dapatkan
         return Response(view('dashboard.notification.member', [
-            'notifications' => Notification::where('user_id', auth()->user()->id)->latest()->get()
+            'notifications' => Notification::where('user_id', auth()->user()->id)->latest()->paginate('6')
         ]));
     }
 
