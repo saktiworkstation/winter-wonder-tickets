@@ -55,4 +55,5 @@ Route::get('/dashboard/user-tickets/management', [UserTicketDashboardController:
 
 Route::get('/dashboard/notifications/admin', [NotificationDashboardController::class, 'adminView'])->middleware('auth');
 Route::get('/dashboard/notifications/member', [NotificationDashboardController::class, 'memberView'])->middleware('auth');
-Route::post('/dashboard/notifications/personal', [NotificationDashboardController::class, 'management'])->middleware('auth');
+Route::get('/dashboard/notifications/add-general-notif', [NotificationDashboardController::class, 'addGeneralNotif'])->middleware('auth');
+Route::get('/dashboard/notifications/add-personal-notif', [NotificationDashboardController::class, 'addPersonalNotif'])->middleware('auth');

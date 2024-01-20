@@ -17,7 +17,7 @@ class NotificationFactory extends Factory
             'user_id' => mt_rand(1, 10),
             'message' => $this->faker->sentence,
             'send_date' => $this->faker->dateTimeThisMonth,
-            'read_status' => $this->faker->randomElement([0, 1]),
+            'status' => $this->faker->randomElement([0, 1]),
         ];
     }
 }

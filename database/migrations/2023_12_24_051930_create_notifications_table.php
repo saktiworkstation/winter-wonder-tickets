@@ -18,7 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->foreignId('user_id');
             $table->text('message');
             $table->dateTime('send_date');
-            $table->integer('read_status'); // 0 = 'read', 1 = 'unread'
+            $table->integer('status'); // 0 = 'personal', 1 = 'General'
             $table->timestamps();
         });
     }

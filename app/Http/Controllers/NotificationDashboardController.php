@@ -23,6 +23,7 @@ class NotificationDashboardController extends Controller
 
     public function addGeneralNotif(){
         // Membuat notif yang akan diterima semua user
+        return Response(view('dashboard.notification.addGeneralNotif'));
     }
 
     public function storeGeneralNotif(){
@@ -30,6 +31,7 @@ class NotificationDashboardController extends Controller
     }
     public function addPersonalNotif(){
         // Memberikan notif ke satu orang
+        return Response(view('dashboard.notification.addPersonalNotif'));
     }
 
     public function storePersonalNotif(){

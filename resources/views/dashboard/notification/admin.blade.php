@@ -5,6 +5,9 @@
         <h1 class="h2">Notifications Management</h1>
     </div>
 
+    <a href="/dashboard/notifications/add-personal-notif" class="btn btn-primary mb-3">Create new Personal Message</a>
+    <a href="/dashboard/notifications/add-general-notif" class="btn btn-primary mb-3">Create new General Message</a>
+
     {{-- Ticket --}}
     <div class="row pt-4 mt-3">
         @if (session()->has('success'))
@@ -14,8 +17,6 @@
             </div>
         @endif
 
-        <a href="/dashboard/notifications/personal" class="btn btn-primary mb-3">Create new Personal Message</a>
-        <a href="/dashboard/notifications/general" class="btn btn-primary mb-3">Create new General Message</a>
 
         @foreach ($notifications as $notif)
             <div class="col-md-4 py-3">
