@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NotificationDashboardController extends Controller
@@ -31,7 +32,9 @@ class NotificationDashboardController extends Controller
     }
     public function addPersonalNotif(){
         // Memberikan notif ke satu orang
-        return Response(view('dashboard.notification.addPersonalNotif'));
+        return Response(view('dashboard.notification.addPersonalNotif',[
+            'users' => User::latest()->get()
+        ]));
     }
 
     public function storePersonalNotif(){
