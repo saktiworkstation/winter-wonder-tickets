@@ -57,3 +57,5 @@ Route::get('/dashboard/notifications/admin', [NotificationDashboardController::c
 Route::get('/dashboard/notifications/member', [NotificationDashboardController::class, 'memberView'])->middleware('auth');
 Route::get('/dashboard/notifications/add-general-notif', [NotificationDashboardController::class, 'addGeneralNotif'])->middleware('auth');
 Route::get('/dashboard/notifications/add-personal-notif', [NotificationDashboardController::class, 'addPersonalNotif'])->middleware('auth');
+Route::post('/dashboard/notifications/store-general-notif', [NotificationDashboardController::class, 'storeGeneralNotif'])->middleware('auth');
+Route::post('/dashboard/notifications/store-personal-notif', [NotificationDashboardController::class, 'storePersonalNotif'])->middleware('auth');

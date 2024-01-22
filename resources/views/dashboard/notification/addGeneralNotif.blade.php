@@ -6,7 +6,7 @@
     </div>
 
     <div class="col-lg-8">
-        <form method="post" action="/dashboard/tickets" class="mb-5" enctype="multipart/form-data">
+        <form method="post" action="/dashboard/notifications/store-general-notif" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>

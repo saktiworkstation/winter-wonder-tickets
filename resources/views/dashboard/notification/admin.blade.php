@@ -8,22 +8,20 @@
     <a href="/dashboard/notifications/add-personal-notif" class="btn btn-primary mb-3">Create new Personal Message</a>
     <a href="/dashboard/notifications/add-general-notif" class="btn btn-primary mb-3">Create new General Message</a>
 
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show col-lg-8" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     {{-- Ticket --}}
     <div class="row pt-4 mt-3">
-        @if (session()->has('success'))
-            <div class="alert alert-success alert-dismissible fade show col-lg-8" role="alert">
-                {{ session('success') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-
         @foreach ($notifications as $notif)
             <div class="col-md-4 py-3">
                 <div class="card">
                     <h5 class="card-header">From : {{ $notif->user->username }}</h5>
                     <div class="card-body">
-                        <h5 class="card-title">Message : {{ $notif->message }}</h5>
+                        <h5 class="card-title">Message : {!! $notif->message !!}</h5>
                     </div>
                 </div>
             </div>

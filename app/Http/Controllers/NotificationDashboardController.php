@@ -27,8 +27,18 @@ class NotificationDashboardController extends Controller
         return Response(view('dashboard.notification.addGeneralNotif'));
     }
 
-    public function storeGeneralNotif(){
+    public function storeGeneralNotif(Request $request){
         // Membuat notif yang akan diterima semua user
+        $validatedData = $request->validate([
+            'message' => 'required'
+        ]);
+
+        $validatedData['status'] = '1';
+        $validatedData['send_date'] = now()->format('Y-m-d');
+
+        Notification::create($validatedData);
+
+        return redirect('/dashboard/notifications/admin')->with('success', 'New general Notification has been sended!');
     }
     public function addPersonalNotif(){
         // Memberikan notif ke satu orang
@@ -37,7 +47,18 @@ class NotificationDashboardController extends Controller
         ]));
     }
 
-    public function storePersonalNotif(){
+    public function storePersonalNotif(Request $request){
         // Memberikan notif ke satu orang
+        $validatedData = $request->validate([
+            'user_id' => 'required',
+            'message' => 'required'
+        ]);
+
+        $validatedData['status'] = '0';
+        $validatedData['send_date'] = now()->format('Y-m-d');
+
+        Notification::create($validatedData);
+
+        return redirect('/dashboard/notifications/admin')->with('success', 'New personal Notification has been sended!');
     }
 }
