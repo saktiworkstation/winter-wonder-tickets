@@ -15,14 +15,27 @@
         @endif
 
         @foreach ($notifications as $notif)
-            <div class="col-md-4 py-3">
-                <div class="card">
-                    <h5 class="card-header">From : {{ $notif->user->username }}</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">Message : {{ $notif->message }}</h5>
+            @if ($notif->user_id == auth()->user()->id)
+                <div class="col-md-4 py-3">
+                    <div class="card">
+                        <h5 class="card-header">From : {{ $notif->user->username }}</h5>
+                        <div class="card-body">
+                            <p>Send Date: {{ $notif->send_date }}</p>
+                            <h5 class="card-title">Message : {!! $notif->message !!}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @elseif ($notif->status == '1')
+                <div class="col-md-4 py-3">
+                    <div class="card">
+                        <h5 class="card-header">From : {{ $notif->user->username }}</h5>
+                        <div class="card-body">
+                            <p>Send Date: {{ $notif->send_date }}</p>
+                            <h5 class="card-title">Message : {!! $notif->message !!}</h5>
+                        </div>
+                    </div>
+                </div>
+            @endif
         @endforeach
 
         <div class="d-flex justify-content-center">

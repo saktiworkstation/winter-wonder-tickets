@@ -21,6 +21,7 @@
                 <div class="card">
                     <h5 class="card-header">From : {{ $notif->user->username }}</h5>
                     <div class="card-body">
+                        <p>Send Date : {{ $notif->send_date }}</p>
                         <h5 class="card-title">Message : {!! $notif->message !!}</h5>
                     </div>
                 </div>
