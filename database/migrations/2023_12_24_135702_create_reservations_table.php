@@ -16,7 +16,8 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('ticket_id');
+            $table->string('name');
+            $table->text('include');
             $table->bigInteger('booking_code');
             $table->integer('status'); // 0 = 'Successfully', 1 = 'Pendeing'
             $table->dateTime('booking_date');

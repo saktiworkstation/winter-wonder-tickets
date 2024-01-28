@@ -15,7 +15,8 @@ class ReservationFactory extends Factory
     {
         return [
             'user_id' => mt_rand(1, 10),
-            'ticket_id' => mt_rand(1, 10),
+            'name' => $this->faker->word,
+            'include' => $this->faker->paragraph,
             'booking_code' => $this->faker->unique()->randomNumber(8),
             'status' => $this->faker->randomElement([0, 1]),
             'booking_date' => $this->faker->dateTimeThisMonth,

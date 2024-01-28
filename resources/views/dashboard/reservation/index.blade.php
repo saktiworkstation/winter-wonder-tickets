@@ -9,7 +9,7 @@
         <div class="row">
             <h2 class="pb-3">Reservations List</h2>
             @foreach ($reservations as $reservation)
-                <div class="col-md-4 mx-1">
+                <div class="col-md-4 my-3">
                     <div class="card" style="width: 18rem;">
                         <img src="/img/room.jpg" class="card-img-top" height="300" alt="...">
                         <div class="card-body">

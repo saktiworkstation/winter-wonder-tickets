@@ -61,6 +61,6 @@ Route::get('/dashboard/notifications/add-personal-notif', [NotificationDashboard
 Route::post('/dashboard/notifications/store-general-notif', [NotificationDashboardController::class, 'storeGeneralNotif'])->middleware('auth');
 Route::post('/dashboard/notifications/store-personal-notif', [NotificationDashboardController::class, 'storePersonalNotif'])->middleware('auth');
 
-Route::post('/dashboard/reservations', [ReservationDashboardController::class, 'index'])->middleware('auth');
-Route::post('/dashboard/reservations/member', [ReservationDashboardController::class, 'memberReservations'])->middleware('auth');
-Route::post('/dashboard/reservations/manage', [ReservationDashboardController::class, 'manageReservations'])->middleware('auth');
+Route::get('/dashboard/reservations', [ReservationDashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/reservations/member', [ReservationDashboardController::class, 'memberReservations'])->middleware('auth');
+Route::get('/dashboard/reservations/manage', [ReservationDashboardController::class, 'manageReservations'])->middleware('auth');
