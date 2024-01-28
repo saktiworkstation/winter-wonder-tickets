@@ -8,28 +8,17 @@
     <div class="container py-3">
         <div class="row">
             <h2 class="pb-3">Reservations List</h2>
-            <div class="col-md-4 mx-1">
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/room.jpg" class="card-img-top" height="300" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
+            @foreach ($reservations as $reservation)
+                <div class="col-md-4 mx-1">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/img/room.jpg" class="card-img-top" height="300" alt="...">
+                        <div class="card-body">
+                            <h3>{{ $reservation->name }}</h3>
+                            <p class="card-text">{{ $reservation->include }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mx-1">
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/room.jpg" class="card-img-top" height="300" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                            of
-                            the
-                            card's content.</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
