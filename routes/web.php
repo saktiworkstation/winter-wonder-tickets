@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotificationDashboardController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\ReservationDashboardController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\TicketDashboardController;
 use App\Http\Controllers\UserTicketController;
@@ -59,3 +60,7 @@ Route::get('/dashboard/notifications/add-general-notif', [NotificationDashboardC
 Route::get('/dashboard/notifications/add-personal-notif', [NotificationDashboardController::class, 'addPersonalNotif'])->middleware('auth');
 Route::post('/dashboard/notifications/store-general-notif', [NotificationDashboardController::class, 'storeGeneralNotif'])->middleware('auth');
 Route::post('/dashboard/notifications/store-personal-notif', [NotificationDashboardController::class, 'storePersonalNotif'])->middleware('auth');
+
+Route::post('/dashboard/reservations', [ReservationDashboardController::class, 'index'])->middleware('auth');
+Route::post('/dashboard/reservations/member', [ReservationDashboardController::class, 'memberReservations'])->middleware('auth');
+Route::post('/dashboard/reservations/manage', [ReservationDashboardController::class, 'manageReservations'])->middleware('auth');

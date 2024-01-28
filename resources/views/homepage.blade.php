@@ -43,7 +43,7 @@
     <div class="container-fluid bg-body-tertiary mt-3">
         <div class="container py-3">
             <div class="row">
-                <h2 class="pb-3">New Promotions</h2>
+                <h2 class="pb-3">List Reservations</h2>
                 <div class="col-md-4 mx-1">
                     <div class="card" style="width: 18rem;">
                         <img src="/img/room.jpg" class="card-img-top" height="300" alt="...">

@@ -28,6 +28,20 @@
                     Notifications
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/notifications*') ? 'active' : '' }}"
+                    href="/dashboard/reservations">
+                    <span data-feather="file-text"></span>
+                    Reservation List
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('/dashboard/notifications*') ? 'active' : '' }}"
+                    href="/dashboard/reservations/member">
+                    <span data-feather="file-text"></span>
+                    My Reservations
+                </a>
+            </li>
         </ul>
 
         @can('admin')
@@ -53,6 +67,13 @@
                         href="/dashboard/notifications/admin">
                         <span data-feather="grid"></span>
                         Notifications
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('/dashboard/notifications*') ? 'active' : '' }}"
+                        href="/dashboard/reservations/manage">
+                        <span data-feather="grid"></span>
+                        Manage Reservations
                     </a>
                 </li>
             </ul>
